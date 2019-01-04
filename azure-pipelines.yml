@@ -50,7 +50,7 @@ steps:
     tag: $(tag_name) # Required when action == edit || action == discard || tagSource == manual
     title: 'Sample Test'   # Optional
     #releaseNotesSource: 'file' # Optional. Options: file, input
-    #releaseNotesFile: # Optional
+    #releaseNotesFile: # Optional   
     #releaseNotes: # Optional
     assets: '$(build.artifactStagingDirectory)/*.tar' # Optional
     #assetUploadMode: 'delete' # Optional. Options: delete, replace
