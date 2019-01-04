@@ -20,15 +20,6 @@ steps:
     curl -Lo fission  https://github.com/fission/fission/releases/download/$(fission_version)/fission-cli-osx
   displayName: 'Download fission-cli file and tar it'
 
-- task: DownloadSecureFile@1
-  inputs:
-    secureFile: https://github.com/fission/fission/releases/download/$(fission_version)/fission-cli-osx
-
-- script: |
-    ls
-    pwd
-  displayName: 'Download fission-cli file and tar it'
-
 # Archive Files
 - task: ArchiveFiles@2
   displayName: "Create archive for fission-cli in tar format"
@@ -49,21 +40,21 @@ steps:
 
 # GitHub Release
 # Create, edit, or discard a GitHub release.
-#- task: GithubRelease@0
-#  inputs:
-#    gitHubConnection: 'github-fission-cli'
-#    repositoryName: 'shoneslab/fission-cli'
-#    action: 'create' # Options: create, edit, discard
-#    target: '$(build.sourceVersion)' # Required when action == create || action == edit
-#    tagSource: 'manual' # Required when action == create. Options: auto, manual
-#    tag: $(tag_name) # Required when action == edit || action == discard || tagSource == manual
-#    title: 'Fission CLI'   # Optional
-#    #releaseNotesSource: 'file' # Optional. Options: file, input
-#    #releaseNotesFile: # Optional   
-#    #releaseNotes: # Optional
-#    assets: '$(System.DefaultWorkingDirectory)/*.tar' # Optional
-#    #assetUploadMode: 'delete' # Optional. Options: delete, replace
-#    #isDraft: false # Optional
-#    #isPreRelease: false # Optional
-#    #addChangeLog: true # Optional
+- task: GithubRelease@0
+  inputs:
+    gitHubConnection: 'github-fission-cli'
+    repositoryName: 'shoneslab/fission-cli'
+    action: 'create' # Options: create, edit, discard
+    target: '$(build.sourceVersion)' # Required when action == create || action == edit
+    tagSource: 'manual' # Required when action == create. Options: auto, manual
+    tag: $(tag_name) # Required when action == edit || action == discard || tagSource == manual
+    title: 'Fission CLI'   # Optional
+    #releaseNotesSource: 'file' # Optional. Options: file, input
+    #releaseNotesFile: # Optional   
+    #releaseNotes: # Optional
+    assets: '$(System.DefaultWorkingDirectory)/*.tar' # Optional
+    #assetUploadMode: 'delete' # Optional. Options: delete, replace
+    #isDraft: false # Optional
+    #isPreRelease: false # Optional
+    #addChangeLog: true # Optional
 
