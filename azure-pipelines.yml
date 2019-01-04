@@ -31,9 +31,12 @@ steps:
     rootFolderOrFile: "$(System.DefaultWorkingDirectory)/fission"
     includeRootFolder: false
     archiveType: tar
-    archiveFile: "$(System.DefaultWorkingDirectory)/fission.tar"  
+    archiveFile: "$(System.DefaultWorkingDirectory)/$(Build.BuildId).tar"  
     replaceExistingArchive: true 
 
+- script: |
+    pwd
+    ls
 # Archive Files
 # Archive files using compression formats such as .7z, .rar, .tar.gz, and .zip.
 #- task: ArchiveFiles@2
@@ -55,7 +58,7 @@ steps:
 - task: PublishBuildArtifacts@1
   displayName: Publish Build Artifacts (application tar)
   inputs:
-    pathtoPublish: '$(Build.DefaultWorkingDirectory)/fission.tar' 
+    pathtoPublish: '$(Build.DefaultWorkingDirectory)' 
     artifactName: 'drop' 
     #publishLocation: 'Container' # Options: container, filePath
     #targetPath: # Required when publishLocation == FilePath
