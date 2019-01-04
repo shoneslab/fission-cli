@@ -14,9 +14,6 @@ variables:
   fission_version: 1.0-rc1
   tag_name: 0.0.1
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
 
 steps:
 - script: |
