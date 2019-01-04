@@ -1,2 +1,2 @@
-# homebrew-fission-cli
+# fission-cli
 Fission CLI installation through homebrew
