@@ -18,6 +18,7 @@ variables:
 steps:
 - script: |
     curl -Lo fission  https://github.com/fission/fission/releases/download/$(fission_version)/fission-cli-osx
+    chmod +x fission
   displayName: 'Download fission-cli file'
 
 # Archive Files
