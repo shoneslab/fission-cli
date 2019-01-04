@@ -18,6 +18,8 @@ variables:
 steps:
 - script: |
     curl -Lo fission  https://github.com/fission/fission/releases/download/$(fission_version)/fission-cli-osx
+    pwd
+    ls
     #tar -czvf fission.tar fission
     #rm fission
   displayName: 'Download a file and tar it'
@@ -28,8 +30,9 @@ steps:
     rootFolderOrFile: "$(System.DefaultWorkingDirectory)/fission"
     includeRootFolder: false
     archiveType: tar
-    archiveFile: "$(System.ArtifactStagingDirectory)/fission.tar"  
+    archiveFile: "$(System.DefaultWorkingDirectory)/fission.tar"  
     replaceExistingArchive: true 
+
 # Archive Files
 # Archive files using compression formats such as .7z, .rar, .tar.gz, and .zip.
 #- task: ArchiveFiles@2
@@ -41,10 +44,10 @@ steps:
     #archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip' 
     #replaceExistingArchive: true   
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+#- script: |
+#    echo Add other tasks to build, test, and deploy your project.
+#    echo See https://aka.ms/yaml
+#  displayName: 'Run a multi-line script'
 
 # Publish Build Artifacts
 # Publish build artifacts to Azure Pipelines/TFS or a file share
