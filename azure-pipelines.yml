@@ -17,6 +17,7 @@ variables:
 
 steps:
 - script: |
+    cd $(System.DefaultWorkingDirectory)
     curl -Lo fission  https://github.com/fission/fission/releases/download/$(fission_version)/fission-cli-osx
     pwd
     ls
