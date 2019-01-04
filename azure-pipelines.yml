@@ -52,7 +52,7 @@ steps:
     #releaseNotesSource: 'file' # Optional. Options: file, input
     #releaseNotesFile: # Optional   
     #releaseNotes: # Optional
-    assets: '$(build.artifactStagingDirectory)/*.tar' # Optional
+    assets: '$(System.DefaultWorkingDirectory)/*.tar' # Optional
     #assetUploadMode: 'delete' # Optional. Options: delete, replace
     #isDraft: false # Optional
     #isPreRelease: false # Optional
