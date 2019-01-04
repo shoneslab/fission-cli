@@ -12,7 +12,7 @@ pool:
 # Set variables once
 variables:
   fission_version: 1.0-rc1
-  tag_name: 0.0.1
+  tag_name: 0.0.2
   artifact_name: fission
 
 steps:
@@ -42,7 +42,7 @@ steps:
 # Create, edit, or discard a GitHub release.
 - task: GithubRelease@0
   inputs:
-    gitHubConnection: 'shonessample'
+    gitHubConnection: 'github-fission-cli'
     repositoryName: 'shoneslab/fission-cli'
     action: 'create' # Options: create, edit, discard
     target: '$(build.sourceVersion)' # Required when action == create || action == edit
